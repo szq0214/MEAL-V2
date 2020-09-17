@@ -102,11 +102,9 @@ We provide pre-trained models with different trainings, we report in the table t
 ### 2. Testing:
 
 * To test a model, run inference.py with the desired model architecture, model path, resolution and the path to the ImageNet dataset:
-
   ```shell
-CUDA_VISIBLE_DEVICES=0,1,2,3 python inference.py -a resnet50 --res 224 --resume MODEL_PATH -e [imagenet-folder with train and val folders]
+  CUDA_VISIBLE_DEVICES=0,1,2,3 python inference.py -a resnet50 --res 224 --resume MODEL_PATH -e [imagenet-folder with train and val folders]
   ```
- 
 change ``--res`` with other image resolution [224/380] and ``-a`` with other model architecture [tf\_mobilenetv3\_small\_100; tf\_mobilenetv3\_large\_100; tf\_efficientnet\_b0] to test other trained models.
 
        
