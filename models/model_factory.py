@@ -71,7 +71,7 @@ def create_model(model_name, student_state_file=None, gpus=[], teacher=None,
     model = _create_checkpoint_model(model_name, student_state_file)
     model.LR_REGIME = [1, 100, 0.01, 101, 300, 0.001] # LR_REGIME 
     if teacher is not None:
-        assert teacher_state_file is not None, "Teacher state is None."
+        # assert teacher_state_file is not None, "Teacher state is None."
 
         teacher = teachers(teacher.split(","), teacher_state_file)
         model = teacher_wrapper.ModelDistillationWrapper(model, teacher)

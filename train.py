@@ -42,9 +42,9 @@ def parse_args(argv):
 
     args = parser.parse_args(argv)
 
-    if args.teacher_model is not None and args.teacher_state_file is None:
-        parser.error("You should set --teacher-state-file if "
-                     "--teacher-model is set.")
+    # if args.teacher_model is not None and args.teacher_state_file is None:
+    #     parser.error("You should set --teacher-state-file if "
+    #                  "--teacher-model is set.")
 
     return args
 

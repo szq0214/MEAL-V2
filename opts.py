@@ -41,7 +41,7 @@ def add_teacher_flags(parser):
     parser.add_argument('--teacher-model', default="vgg19_bn,resnet50", help="The "
                         "model that will generate soft labels per crop.",
                         )
-    parser.add_argument('--teacher-state-file', default="./",
+    parser.add_argument('--teacher-state-file', default=None,
                         help="Path to teacher model state file.")
 
 
