@@ -1,7 +1,7 @@
 # MEAL-V2
 
 This is the official pytorch implementation of our paper:
- ["MEAL V2: Boosting Vanilla ResNet-50 to 80%+ Top-1 Accuracyon ImageNet without Tricks"]() by
+ ["MEAL V2: Boosting Vanilla ResNet-50 to 80%+ Top-1 Accuracyon ImageNet without Tricks"](https://arxiv.org/abs/2009.08453) by
  [Zhiqiang Shen](http://zhiqiangshen.com/) and [Marios Savvides](https://www.cmu-biometrics.org/) from Carnegie Mellon University.
 
 <div align=center>
@@ -17,7 +17,7 @@ If you find our code is helpful for your research, please cite:
     @article{shen2020mealv2,
       title={MEAL V2: Boosting Vanilla ResNet-50 to 80%+ Top-1 Accuracyon ImageNet without Tricks},
       author={Shen, Zhiqiang and Savvides, Marios},
-      journal={arXiv preprint arXiv:},
+      journal={arXiv preprint arXiv:2009.08453},
       year={2020}
     }
 
@@ -94,7 +94,7 @@ We provide pre-trained models with different trainings, we report in the table t
 *Please reduce the ``--batch-size`` if you get ''out of memory'' error. We also notice that more training epochs can slightly improve the performance.* 
 
 * To resume training a model, run script/resume_train.sh with the desired model architecture, starting number of training epoch and the path to the ImageNet dataset:
-* 
+
   ```shell
   sh script/resume_train.sh 
   ```
@@ -102,6 +102,7 @@ We provide pre-trained models with different trainings, we report in the table t
 ### 2. Testing:
 
 * To test a model, run inference.py with the desired model architecture, model path, resolution and the path to the ImageNet dataset:
+
   ```shell
   CUDA_VISIBLE_DEVICES=0,1,2,3 python inference.py -a resnet50 --res 224 --resume MODEL_PATH -e [imagenet-folder with train and val folders]
   ```
