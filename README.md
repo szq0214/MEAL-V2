@@ -1,7 +1,7 @@
 # MEAL-V2
 
 This is the official pytorch implementation of our paper:
- ["MEAL V2: Boosting Vanilla ResNet-50 to 80%+ Top-1 Accuracyon ImageNet without Tricks"](https://arxiv.org/abs/2009.08453) by
+ ["MEAL V2: Boosting Vanilla ResNet-50 to 80%+ Top-1 Accuracy on ImageNet without Tricks"](https://arxiv.org/abs/2009.08453) by
  [Zhiqiang Shen](http://zhiqiangshen.com/) and [Marios Savvides](https://www.cmu-biometrics.org/) from Carnegie Mellon University.
 
 <div align=center>
@@ -15,7 +15,7 @@ In this paper, we introduce a simple yet effective approach that can boost the v
 If you find our code is helpful for your research, please cite:
 
     @article{shen2020mealv2,
-      title={MEAL V2: Boosting Vanilla ResNet-50 to 80%+ Top-1 Accuracyon ImageNet without Tricks},
+      title={MEAL V2: Boosting Vanilla ResNet-50 to 80%+ Top-1 Accuracy on ImageNet without Tricks},
       author={Shen, Zhiqiang and Savvides, Marios},
       journal={arXiv preprint arXiv:2009.08453},
       year={2020}
