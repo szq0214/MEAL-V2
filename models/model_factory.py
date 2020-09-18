@@ -18,14 +18,10 @@ MODEL_NAME_MAP = {
 }
 
 def _create_single_cpu_model(model_name, state_file=None):
-    if model_name not in MODEL_NAME_MAP:
-        raise ValueError("Model {} is invalid. Pick from {}.".format(
-            model_name, sorted(MODEL_NAME_MAP.keys())))
-    model_class = MODEL_NAME_MAP[model_name]
-    model = model_class()
+    model = _create_model(model_name, teacher=False, pretrain=True)
     if state_file is not None:
         model.load_state_dict(torch.load(state_file))
-    model = torch.nn.DataParallel(model).cuda()
+    # model = torch.nn.DataParallel(model).cuda()
     return model
 
 def _create_checkpoint_model(model_name, state_file=None):
@@ -62,9 +58,11 @@ def _create_model(model_name, teacher=False, pretrain=True):
     return model
 
 
-def teachers(teachers=['AlexNet'], state_file=None):
-    return [_create_model(t, teacher=True).cuda() for t in teachers]
-    # return [_create_single_cpu_model(t, state_file).cuda() for t in teachers]
+def teachers(teachers=['resnet50'], state_file=None):
+    if state_file is not None:
+        return [_create_single_cpu_model(t, state_file).cuda() for t in teachers]
+    else:
+        return [_create_model(t, teacher=True).cuda() for t in teachers]
 
 
 def create_model(model_name, student_state_file=None, gpus=[], teacher=None,
