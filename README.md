@@ -21,6 +21,10 @@ If you find our code is helpful for your research, please cite:
       year={2020}
     }
 
+## News
+
+**[Nov. 3, 2020]** Short version of MEAL V2 has been accepted in NeurIPS 2020 [Beyond BackPropagation: Novel Ideas for Training Neural Architectures](https://beyondbackprop.github.io/) workshop. Long version is coming soon.  
+
 ## Preparation
 
 ### 1. Requirements:

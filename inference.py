@@ -189,7 +189,6 @@ def main_worker(gpu, ngpus_per_node, args):
                 # Map model to be loaded to specified single gpu.
                 loc = 'cuda:{}'.format(args.gpu)
                 checkpoint = torch.load(args.resume, map_location=loc)
-
             model.load_state_dict(checkpoint)
         else:
             print("=> no checkpoint found at '{}'".format(args.resume))
@@ -201,8 +200,6 @@ def main_worker(gpu, ngpus_per_node, args):
     valdir = os.path.join(args.data, 'val')
     normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                      std=[0.229, 0.224, 0.225])
-    # normalize = transforms.Normalize(mean=[0.5, 0.5, 0.5],
-    #                                  std=[0.5, 0.5, 0.5])
 
     train_dataset = datasets.ImageFolder(
         traindir,
