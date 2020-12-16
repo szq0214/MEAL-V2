@@ -23,6 +23,8 @@ If you find our code is helpful for your research, please cite:
 
 ## News
 
+**[Dec. 16, 2020]** MEAL V2 is now available in [PyTorch Hub](https://pytorch.org/hub/pytorch_vision_meal_v2/).  
+
 **[Nov. 3, 2020]** Short version of MEAL V2 has been accepted in NeurIPS 2020 [Beyond BackPropagation: Novel Ideas for Training Neural Architectures](https://beyondbackprop.github.io/) workshop. Long version is coming soon.  
 
 ## Preparation
