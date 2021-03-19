@@ -23,6 +23,8 @@ If you find our code is helpful for your research, please cite:
 
 ## News
 
+**[Mar. 19, 2021]** Long version of MEAL V2 is available on: [arXiv](https://arxiv.org/abs/2009.08453) or [paper](http://zhiqiangshen.com/projects/MEAL_V2/arxiv.pdf).  
+
 **[Dec. 16, 2020]** MEAL V2 is now available in [PyTorch Hub](https://pytorch.org/hub/pytorch_vision_meal_v2/).  
 
 **[Nov. 3, 2020]** Short version of MEAL V2 has been accepted in NeurIPS 2020 [Beyond BackPropagation: Novel Ideas for Training Neural Architectures](https://beyondbackprop.github.io/) workshop. Long version is coming soon.  
