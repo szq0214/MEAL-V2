@@ -57,6 +57,7 @@ We provide pre-trained models with different trainings, we report in the table t
 | Models | Resolution| #Parameters | Top-1/Top-5 | Trained models |
 | :---: | :-: | :-: | :------:| :------: | 
 | [MEAL-V1 w/ ResNet50](https://arxiv.org/abs/1812.02425) | 224 | 25.6M |**78.21/94.01** | [GitHub](https://github.com/AaronHeee/MEAL#imagenet-model) |
+| MEAL-V2 w/ ResNet18 | 224 | 11.7M | **73.19/90.82** | [Download (46.8M)](https://1drv.ms/u/s!AtMVZxJ8MfxCi03CTdVPH24ce6rD?e=l7BoZL) |
 | MEAL-V2 w/ ResNet50 | 224 | 25.6M | **80.67/95.09** | [Download (102.6M)](https://1drv.ms/u/s!AtMVZxJ8MfxCi0NGENlMK0pYVDQM?e=GkwZ93) |
 | MEAL-V2 w/ ResNet50| 380 | 25.6M | **81.72/95.81** | [Download (102.6M)](https://1drv.ms/u/s!AtMVZxJ8MfxCi0T9nodVNdnklHNt?e=7oJGIy) | 
 | MEAL-V2 + CutMix w/ ResNet50| 224 | 25.6M | **80.98/95.35** | [Download (102.6M)](https://1drv.ms/u/s!AtMVZxJ8MfxCi0cIf5IqpBX6nl1U?e=Fig91M) |
