@@ -23,6 +23,8 @@ If you find our code is helpful for your research, please cite:
 
 ## News
 
+**New:** Add CutMix training support, use *--w-cutmix* to enable it.
+
 **[Mar. 19, 2021]** Long version of MEAL V2 is available on: [arXiv](https://arxiv.org/abs/2009.08453) or [paper](http://zhiqiangshen.com/projects/MEAL_V2/arxiv.pdf).  
 
 **[Dec. 16, 2020]** MEAL V2 is now available in [PyTorch Hub](https://pytorch.org/hub/pytorch_vision_meal_v2/).  
@@ -74,6 +76,11 @@ We provide pre-trained models with different trainings, we report in the table t
   ```shell
   # 224 x 224 ResNet-50
   python train.py --save MEAL_V2_resnet50_224 --batch-size 512 -j 48 --model resnet50 --epochs 180 --teacher-model gluon_senet154,gluon_resnet152_v1s --imagenet [imagenet-folder with train and val folders] 
+  ```
+  
+  ```shell
+  # 224 x 224 ResNet-50 w/ CutMix
+  python train.py --save MEAL_V2_resnet50_224 --batch-size 512 -j 48 --model resnet50 --epochs 180 --teacher-model gluon_senet154,gluon_resnet152_v1s --imagenet [imagenet-folder with train and val folders] --w-cutmix
   ```
   
   ```shell

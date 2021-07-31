@@ -8,20 +8,14 @@ import random
 from extensions import data_parallel
 from extensions import teacher_wrapper
 from extensions import kd_loss
-from models import resnet50
 import torchvision.models as models
-# import pretrainedmodels
 import timm
 
-MODEL_NAME_MAP = {
-    'resnet50': resnet50.ResNet50,
-}
 
 def _create_single_cpu_model(model_name, state_file=None):
     model = _create_model(model_name, teacher=False, pretrain=True)
     if state_file is not None:
         model.load_state_dict(torch.load(state_file))
-    # model = torch.nn.DataParallel(model).cuda()
     return model
 
 def _create_checkpoint_model(model_name, state_file=None):
@@ -29,7 +23,6 @@ def _create_checkpoint_model(model_name, state_file=None):
     # model = timm.create_model(model_name.lower(), pretrained=False)
     if state_file is not None:
         model.load_state_dict(torch.load(state_file))
-        # model = torch.nn.DataParallel(model).cuda()
     return model
 
 def _create_model(model_name, teacher=False, pretrain=True):

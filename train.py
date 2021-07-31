@@ -7,6 +7,7 @@ import pprint
 import os
 import sys
 import time
+import numpy as np
 
 import torch
 from torch import nn
@@ -39,6 +40,9 @@ def parse_args(argv):
 
     group = parser.add_argument_group('Training Options')
     opts.add_training_flags(group)
+
+    group = parser.add_argument_group('CutMix Training Options')
+    opts.add_cutmix_training_flags(group)
 
     args = parser.parse_args(argv)
 
@@ -100,7 +104,7 @@ def _get_learning_rate(optimizer):
     return max(param_group['lr'] for param_group in optimizer.param_groups)
 
 
-def train_for_one_epoch(model, g_loss, discriminator_loss, train_loader, optimizer, epoch_number):
+def train_for_one_epoch(model, g_loss, discriminator_loss, train_loader, optimizer, epoch_number, args):
     model.train()
     g_loss.train()
 
@@ -121,6 +125,17 @@ def train_for_one_epoch(model, g_loss, discriminator_loss, train_loader, optimiz
 
         # Record data time
         data_time_meter.update(time.time() - timestamp)
+
+        if args.w_cutmix == True:
+            r = np.random.rand(1)
+            if args.beta > 0 and r < args.cutmix_prob:
+                # generate mixed sample
+                lam = np.random.beta(args.beta, args.beta)
+                rand_index = torch.randperm(images.size()[0]).cuda()
+                target_a = labels
+                target_b = labels[rand_index]
+                bbx1, bby1, bbx2, bby2 = utils.rand_bbox(images.size(), lam)
+                images[:, :, bbx1:bbx2, bby1:bby2] = images[rand_index, :, bbx1:bbx2, bby1:bby2]
 
         # Forward pass, backward pass, and update parameters.
         outputs = model(images, before=True)
@@ -237,7 +252,7 @@ def main(argv):
     for epoch in range(args.start_epoch, args.epochs):
         lr = regime.get_lr(epoch)
         _set_learning_rate(optimizer, lr)
-        train_for_one_epoch(model, loss, discriminator_loss, train_loader, optimizer, epoch)
+        train_for_one_epoch(model, loss, discriminator_loss, train_loader, optimizer, epoch, args)
         test.test_for_one_epoch(model, loss, val_loader, epoch)
         save_checkpoint(args.save, model, optimizer, epoch)
 

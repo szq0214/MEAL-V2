@@ -56,3 +56,12 @@ def add_training_flags(parser):
                         help="The momentum of the optimization.")
     parser.add_argument('--weight-decay', default=0, type=float,
                         help="The weight decay of the optimization.")
+
+
+def add_cutmix_training_flags(parser):
+    parser.add_argument('--w-cutmix', action='store_true',
+                    help='use cutmix training')
+    parser.add_argument('--beta', default=1.0, type=float,
+                        help='hyperparameter beta')
+    parser.add_argument('--cutmix-prob', default=1.0, type=float,
+                        help='cutmix probability')
