@@ -26,8 +26,8 @@ If you find our code is helpful for your research, please cite:
 **New:** Basically, adding back tricks (cosine *lr*, etc.) into MEAL V2 can consistently improve the accuracy:
 
 <div align=center>
-<img width=45% src="images/MEAL-V2_more_tricks_top1.pdf"/>
-<img width=45% src="images/MEAL-V2_more_tricks_top5.pdf"/>
+<img width=45% src="images/MEAL-V2_more_tricks_top1.png"/>
+<img width=45% src="images/MEAL-V2_more_tricks_top5.png"/>
 </div>
 
 **New:** Add CutMix training support, use *--w-cutmix* to enable it.
