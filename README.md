@@ -23,6 +23,13 @@ If you find our code is helpful for your research, please cite:
 
 ## News
 
+**New:** Basically, adding back tricks (cosine *lr*, etc.) into MEAL V2 can consistently improve the accuracy:
+
+<div align=center>
+<img width=45% src="images/MEAL-V2_more_tricks_top1.pdf"/>
+<img width=45% src="images/MEAL-V2_more_tricks_top5.pdf"/>
+</div>
+
 **New:** Add CutMix training support, use *--w-cutmix* to enable it.
 
 **[Mar. 19, 2021]** Long version of MEAL V2 is available on: [arXiv](https://arxiv.org/abs/2009.08453) or [paper](http://zhiqiangshen.com/projects/MEAL_V2/arxiv.pdf).  
