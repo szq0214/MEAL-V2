@@ -34,9 +34,6 @@ def add_model_flags(parser):
                         "name.")
     parser.add_argument('--student-state-file', default=None, help="Path to student model"
                         "state file to initialize the student model.")
-    parser.add_argument('--start-epoch', default=0, help="manual epoch number "
-                        "useful on restarts.", type=int)
-    parser.add_argument('--epochs', default=200, type=int, help='number of total epochs to run')
 
 
 def add_teacher_flags(parser):
@@ -56,6 +53,9 @@ def add_training_flags(parser):
                         "be as list of [start, end, lr, ...].")
     parser.add_argument('--d_lr', default=1e-4,  type=float,
                         help="The learning rate for discriminator training")
+    parser.add_argument('--start-epoch', default=0, help="manual epoch number "
+                        "useful on restarts.", type=int)
+    parser.add_argument('--epochs', default=200, type=int, help='number of total epochs to run')
     parser.add_argument('--schedule', default=[100, 200], nargs='*', type=int,
                     help='learning rate schedule (when to drop lr by 10x). This works for FKD training')
     parser.add_argument('--cos', action='store_true',

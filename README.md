@@ -26,7 +26,7 @@ If you find our code is helpful for your research, please cite:
 **[Dec. 5, 2021]** **New:** Add [FKD](https://arxiv.org/abs/2112.01528) training support. We highly recommend to use FKD for training MEAL V2 models, which will be 2~4x faster with similar accuracy. 
 
 - Download our [soft label](http://zhiqiangshen.com/projects/FKD/index.html) for MEAL V2.
-- run script/FKD_train.sh with the desired model architecture and the path to the ImageNet dataset and soft label, for example:
+- run `FKD_train.py` with the desired model architecture, the path to the ImageNet dataset and the path to the soft label, for example:
 
   ```shell
   # 224 x 224 ResNet-50
@@ -37,7 +37,7 @@ If you find our code is helpful for your research, please cite:
   --imagenet [imagenet-folder with train and val folders] \
   --num_crops 8 --soft_label_type marginal_smoothing_k5 \
   --softlabel_path [path of soft label] \
-  --schedule 100 240 --use-discriminator-loss
+  --schedule 100 180 --use-discriminator-loss
   ```
 Add `--cos` if you would like to train with cosine learning rate.
 
