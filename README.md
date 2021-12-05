@@ -23,7 +23,7 @@ If you find our code is helpful for your research, please cite:
 
 ## News
 
-**[Dec. 5, 2021]** **New:** Add [FKD](https://arxiv.org/abs/2112.01528) training support. We highly recommend to use FKD for training MEAL V2 models, which will be 2~4x faster while reaching similar accuracy. 
+**[Dec. 5, 2021]** **New:** Add [FKD](https://arxiv.org/abs/2112.01528) training support. We highly recommend to use FKD for training MEAL V2 models, which will be 2~4x faster with similar accuracy. 
 
 - Download our [soft label](http://zhiqiangshen.com/projects/FKD/index.html) for MEAL V2.
 - run script/FKD_train.sh with the desired model architecture and the path to the ImageNet dataset and soft label, for example:
