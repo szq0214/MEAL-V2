@@ -30,7 +30,7 @@ If you find our code is helpful for your research, please cite:
 
   ```shell
   # 224 x 224 ResNet-50
-  python FKD_train.sh --save MEAL_V2_resnet50_224 \
+  python FKD_train.py --save MEAL_V2_resnet50_224 \
   --batch-size 512 -j 48 \
   --model resnet50 --epochs 180 \
   --teacher-model gluon_senet154,gluon_resnet152_v1s \
