@@ -59,17 +59,21 @@ def teachers(teachers=['resnet50'], state_file=None):
 
 
 def create_model(model_name, student_state_file=None, gpus=[], teacher=None,
-                 teacher_state_file=None):
-    # model = _create_model(model_name)
-    model = _create_checkpoint_model(model_name, student_state_file)
-    model.LR_REGIME = [1, 100, 0.01, 101, 300, 0.001] # LR_REGIME 
-    if teacher is not None:
-        # assert teacher_state_file is not None, "Teacher state is None."
-
-        teacher = teachers(teacher.split(","), teacher_state_file)
-        model = teacher_wrapper.ModelDistillationWrapper(model, teacher)
+                 teacher_state_file=None, FKD=True):
+    if FKD:
+        model = _create_checkpoint_model(model_name, student_state_file)
         loss = kd_loss.KLLoss()
+        return model, loss
     else:
-        loss = nn.CrossEntropyLoss()
+        model = _create_checkpoint_model(model_name, student_state_file)
+        model.LR_REGIME = [0, 100, 0.01, 101, 300, 0.001] # LR_REGIME 
+        if teacher is not None:
+            # assert teacher_state_file is not None, "Teacher state is None."
 
-    return model, loss
+            teacher = teachers(teacher.split(","), teacher_state_file)
+            model = teacher_wrapper.ModelDistillationWrapper(model, teacher)
+            loss = kd_loss.KLLoss()
+        else:
+            loss = nn.CrossEntropyLoss()
+
+        return model, loss
