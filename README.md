@@ -2,7 +2,7 @@
 
 This is the official pytorch implementation of our paper:
  ["MEAL V2: Boosting Vanilla ResNet-50 to 80%+ Top-1 Accuracy on ImageNet without Tricks"](https://arxiv.org/abs/2009.08453) by
- [Zhiqiang Shen](http://zhiqiangshen.com/) and [Marios Savvides](https://www.cmu-biometrics.org/) from Carnegie Mellon University.
+ [Zhiqiang Shen](http://zhiqiangshen.com/) and [Marios Savvides](https://www.ece.cmu.edu/directory/bios/savvides-marios.html) from Carnegie Mellon University.
 
 <div align=center>
 <img width=70% src="https://user-images.githubusercontent.com/3794909/92182326-6f78c400-ee19-11ea-80e4-2d6e4d73ce82.png"/>
@@ -32,7 +32,7 @@ If you find our code is helpful for your research, please cite:
   # 224 x 224 ResNet-50
   python FKD_train.py --save MEAL_V2_resnet50_224 \
   --batch-size 512 -j 48 \
-  --model resnet50 --epochs 180 \
+  --model resnet50 --epochs 200 \
   --teacher-model gluon_senet154,gluon_resnet152_v1s \
   --imagenet [imagenet-folder with train and val folders] \
   --num_crops 8 --soft_label_type marginal_smoothing_k5 \
