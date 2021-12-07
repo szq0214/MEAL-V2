@@ -24,7 +24,6 @@ def get_train_loader_FKD(imagenet_path, batch_size, num_workers, image_size, num
         root=os.path.join(imagenet_path, 'train'),
         transform=Compose_FKD(transforms=[
             RandomResizedCrop_FKD(size=224,
-                                  scale=(0.08, 1),
                                   interpolation='bilinear'), 
             RandomHorizontalFlip_FKD(),
             transforms.ToTensor(),

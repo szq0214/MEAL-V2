@@ -13,7 +13,6 @@ import random
 import numpy as np
 
 
-
 class RandomResizedCrop_FKD(torchvision.transforms.RandomResizedCrop):
     def __init__(self, **kwargs):
         super(RandomResizedCrop_FKD, self).__init__(**kwargs)
@@ -80,7 +79,7 @@ class ImageFolder_FKD(torchvision.datasets.ImageFolder):
 
             label = torch.load(label_path, map_location=torch.device('cpu'))
 
-            coords,flip_status,output = label
+            coords, flip_status, output = label
 
             rand_index = torch.randperm(len(output))#.cuda()
             output_new = []
@@ -105,7 +104,6 @@ class ImageFolder_FKD(torchvision.datasets.ImageFolder):
 
 
 def Recover_soft_label(label, label_type, n_classes):
-    
     if label_type == 'hard':
         return torch.zeros(label.size(0), n_classes).scatter_(1, label.view(-1, 1), 1)
     elif label_type == 'smoothing':
