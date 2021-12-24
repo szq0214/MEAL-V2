@@ -166,10 +166,11 @@ def train_for_one_epoch(model, g_loss, discriminator_loss, train_loader, optimiz
         if args.use_discriminator_loss:
             # Our stored label is "after softmax", this is slightly different from original MEAL V2 
             # that used probibilaties "before softmax" for the discriminator.
+            output_softmax = nn.functional.softmax(output)
             if args.w_cutmix == True:
-                d_loss_value = discriminator_loss([output], [target_a]) * lam + discriminator_loss([output], [target_b]) * (1 - lam)
+                d_loss_value = discriminator_loss([output_softmax], [target_a]) * lam + discriminator_loss([output_softmax], [target_b]) * (1 - lam)
             else:
-                d_loss_value = discriminator_loss([output], [soft_labels])
+                d_loss_value = discriminator_loss([output_softmax], [soft_labels])
 
         # Sometimes loss function returns a modified version of the output,
         # which must be used to compute the model accuracy.
